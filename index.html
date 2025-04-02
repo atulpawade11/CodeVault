@@ -4,33 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-    <title>Frontend Mentor | Browser extensions manager UI</title>
+    <title>Frontend Mentor | Browser Extensions Manager UI</title>
 
     <link rel="stylesheet" href="assets/css/style.css">
   </head>
   <body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors">
+
     <div class="container mx-auto p-6">
-      <div class="flex justify-between items-center mb-4 p-4 bg-white dark:bg-gray-800 shadow-md rounded-lg">
-        <h1 class="text-2xl font-bold text-gray-900 dark:text-white"><img src="./assets/images/logo.svg"></h1>
-        <button onclick="toggleDarkMode()" class="p-2 bg-gray-300 dark:bg-gray-700 rounded-full shadow">
+      
+      <!-- Header (Contained within container) -->
+      <header class="flex justify-between items-center mb-4 p-4 bg-white dark:bg-gray-800 shadow-md rounded-lg">
+        <h1 class="text-2xl font-bold text-gray-900 dark:text-white flex items-center">
+          <img src="./assets/images/logo.svg" alt="Website Logo" class="dark:hidden">
+          <img src="./assets/images/logo-white.svg" alt="Website Logo" class="hidden dark:block">
+        </h1>
+        <button onclick="toggleDarkMode()" class="p-2 bg-gray-300 dark:bg-gray-700 rounded-full shadow" aria-label="Toggle Dark Mode">
           <img id="themeIcon" src="./assets/images/icon-sun.svg" alt="Theme Toggle" class="w-6 h-6">
         </button>
-        </div>
-        <div class="flex justify-between items-center">
-            <div></div>
-            <div class="flex gap-2">
-                <button id="allBtn" onclick="filterExtensions('all', this)" class="px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-lg">All</button>
-                <button id="activeBtn" onclick="filterExtensions('active', this)" class="px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-lg">Active</button>
-                <button id="inactiveBtn" onclick="filterExtensions('inactive', this)" class="px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-lg">Inactive</button>
+      </header>
+
+      <!-- Filter Buttons Section -->
+      <section aria-labelledby="filter-title" class="mb-4">
+        <h2 id="filter-title" class="sr-only">Filter Extensions</h2>
+        <form>
+          <fieldset>
+            <legend class="sr-only">Filter Extensions</legend>
+            <div class="flex justify-between items-center">
+              <div></div>
+              <div class="flex gap-2">
+                <button id="allBtn" onclick="filterExtensions('all', this)" 
+                        class="px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-lg" 
+                        aria-label="Show all extensions">All</button>
+                
+                <button id="activeBtn" onclick="filterExtensions('active', this)" 
+                        class="px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-lg" 
+                        aria-label="Show active extensions">Active</button>
+                
+                <button id="inactiveBtn" onclick="filterExtensions('inactive', this)" 
+                        class="px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-lg" 
+                        aria-label="Show inactive extensions">Inactive</button>
+              </div>
             </div>
-        </div>
-        <div id="extensionsContainer" class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6"></div>
+          </fieldset>
+        </form>
+      </section>
+
+      <!-- Extensions List -->
+      <section id="extensionsContainer" aria-labelledby="extensions-title" class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
+        <h2 id="extensions-title" class="sr-only">Extensions List</h2>
+        <!-- Dynamic extension cards will be inserted here -->
+      </section>
+
     </div>
-    <div class="attribution text-center">
-      Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-      Coded by <a href="#">Atul Pawade</a>.
-    </div>
+
+    <!-- Footer -->
+    <footer class="text-center p-4 bg-gray-100 dark:bg-gray-900 mt-6">
+      <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" class="text-blue-500">Frontend Mentor</a>. 
+        Coded by <a href="#" class="text-blue-500">Atul Pawade</a>.
+      </div>
+    </footer>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="assets/js/custom.js"></script>
+
   </body>
 </html>
